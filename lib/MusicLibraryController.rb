@@ -22,9 +22,12 @@ class MusicLibraryController
     end
   end
 
+  def get_songs
+    Song.all.sort { |a, b| a.name <=> b.name }
+  end 
+  
   def list_songs
-    ordered_songs = Song.all.sort { |a, b| a.name <=> b.name }
-    ordered_songs.each_with_index do |song, index|
+    get_songs.each_with_index do |song, index|
       puts "#{index+1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
     end
   end
@@ -70,8 +73,8 @@ class MusicLibraryController
   def play_song
     puts "Which song number would you like to play?"
     user_input = gets.chomp.to_i
-    if user_input > 1 && user_input < #list_songs.length
-      correct_song = #list_songs[user_input - 1]
+    if user_input > 1 && user_input < get_songs.length
+      correct_song = get_songs[user_input - 1]
       correct_song_name = correct_song.name
       correct_song_artist = correct_song.artist.name
       puts "Playing #{correct_song_name} by #{correct_song_artist}"
