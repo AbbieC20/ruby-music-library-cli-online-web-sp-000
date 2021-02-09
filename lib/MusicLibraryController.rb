@@ -76,9 +76,7 @@ class MusicLibraryController
     songs = get_songs
     if user_input > 1 && user_input < songs.length
       correct_song = songs[user_input - 1]
-      correct_song_name = correct_song.name
-      correct_song_artist = correct_song.artist.name
-      puts "Playing #{correct_song_name} by #{correct_song_artist}"
+      puts "Playing #{correct_song.name} by #{correct_song.artist.name}"
     end
   end
 end
