@@ -18,6 +18,12 @@ class MusicLibraryController
     puts "What would you like to do?"
     user_input = gets.chomp
     until user_input == "exit"
+      case user_input
+      when "list songs"
+        list_songs
+      when "list songs"
+        list_artists
+      end
       user_input = gets.chomp
     end
   end
