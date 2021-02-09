@@ -21,7 +21,7 @@ class MusicLibraryController
       case user_input
       when "list songs"
         list_songs
-      when "list songs"
+      when "list artist"
         list_artists
       end
       user_input = gets.chomp
